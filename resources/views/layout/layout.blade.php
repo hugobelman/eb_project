@@ -14,7 +14,7 @@
     </head>
     <body>
         @include('layout.header')
-        <main class="container-fluid">
+        <main>
             @yield('content')
         </main>
     </body>

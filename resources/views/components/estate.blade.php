@@ -4,12 +4,6 @@
         <h5 class="card-title">{{$title}}</h5>
         <p class="card-text">{{$location}}</p>
         <p class="card-text">{{$type}}</p>
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-            </div>
-            <small class="text-muted">{{$publicId}}</small>
-        </div>
+        <a href="{{url('/properties/'.$publicId)}}" class="btn btn-primary">Detalles</a>
     </div>
 </div>

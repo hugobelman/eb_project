@@ -15,15 +15,6 @@ class Estate extends Component
      * Create a new component instance.
      *
      * @return void
-     
-    public function __construct($publicId, $title, $type, $location, $imageUrl)
-    {
-        $this->publicId = $publicId;
-        $this->title = $title;
-        $this->type = $type;
-        $this->location = $location;
-        $this->imageUrl = $imageUrl;
-    }
     */
     public function __construct($id, $title, $type, $location, $image)
     {
