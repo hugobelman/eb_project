@@ -50,8 +50,6 @@ mkdir tests/Feature
 
 7. Ejecutar tests
 ```bash
-mv .env.example .env
-mkdir tests/Feature
 ./vendor/bin/sail test
 ```
 
