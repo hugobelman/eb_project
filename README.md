@@ -1,66 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# EasyBroker - Software Developer Intern Interview Project
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Para la elaboración de este proyecto se uso LARAVEL, un framework para PHP.
 
-## About Laravel
+## ¿Cómo ejecutar el proyecto?
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Usando Docker Desktop (Mac/Windows)
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clonar el repositorio
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+git clone https://github.com/hugobelman/eb_project
+```
 
-## Learning Laravel
+2. Entrar a la carpeta eb_project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+cd eb_project
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Ejecutar el siguiente comando (Docker Desktop debe estar corriendo)
 
-## Laravel Sponsors
+```bash
+./vendor/bin/sail up
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+4. Entrar a [localhost](http://localhost) y listo!
 
-### Premium Partners
+## Screenshots
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+[Alt text](/screenshots/4.jpg "Página principal: Page 1")
 
-## Contributing
+[Alt text](/screenshots/4.jpg "Página principal: Page 5")
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[Alt text](/screenshots/2.jpg "Página de propiedad")
 
-## Code of Conduct
+[Alt text](/screenshots/3.jpg "Formulario enviado")
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Notas
 
-## Security Vulnerabilities
+En este proyecto decidí crear una clase **EasyBrokerApiService** dentro de la carpeta App/Http/Services, esto para definir algunos de los metodos para acceder a la información de la API de EasyBroker requerida por el sitio web de una manerá más facil y centralizada, ademas de definir un formato para dichas respuestas y excepciones.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Retos
 
-## License
+Mi reto más grande fue del lado de los tests, debido a que aún no tengo tan desarrollada la habilidad de crear test unitarios relevantes y precisos. Puse solo los que consideré que eran utiles para mi.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Tambien considero que el código PHP que esta en los layouts no es tan limpio como me gustaría, mi mejor ejemplo podría ser en el código de la paginación, si tuviera más tiempo, arreglaría esa parte.
+
+### Tests
+
+Los test elaborados nos ayudan a probar que las peticiones a la API de EasyBroker esten funcionando correctamente y por lo tanto regresen un status 200. 
+
+Una de las pruebas (Post de contact_request) realiza un verdadero post a la API por lo que se me ocurrio que debería borrar dicho post al terminar de correr el test pero por ahora no encontre manerá de hacerlo ya que no se como obtener un contact_request ID pues en la documentación no se muestra que exista esa posibilidad, tampoco dice si es posible usar el verbo http DELETE o no.
+
+### Detalles a mejorar
+
+Hay algunos detalles extras que me gustaría mejorar, por ejemplo, que pasa cuando le doy una página fuera del rango de páginas que existen en la API, las imagenes del slideshow no se muestran del todo bien, las tarjetas de la página principal se pueden ver mejor, etc.
+
+
+
+
+

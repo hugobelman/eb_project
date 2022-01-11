@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <title>{{ config('app.name', 'Laravel')}} - @yield('pageTitle')</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -13,10 +13,10 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        @include('layout.header')
+        @include('layout.elements.header')
         <main>
             @yield('content')
         </main>
-        @include('layout.footer')
+        @include('layout.elements.footer')
     </body>
 </html>
