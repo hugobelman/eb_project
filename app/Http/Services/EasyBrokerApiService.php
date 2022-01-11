@@ -16,7 +16,7 @@ class EasyBrokerApiService {
         return $this->getResourceList('properties', [
             'page' => $page,
             'limit' => $limit,
-            'search["statuses"]' => 'published'
+            'search[statuses][]' => 'published'
         ]);
     }
 

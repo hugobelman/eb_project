@@ -11286,3 +11286,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.tales {
+  width: 100%;
+}
+
+.carousel-inner{
+  height: 500px !important;
+  background-color: rgba(119, 119, 119)
+}
+
+.carousel-inner > div > img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+.home-img {
+  height: 329px;
+}

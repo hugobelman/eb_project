@@ -32,11 +32,14 @@ class PropertiesTest extends TestCase
     public function test_post_contact_request_is_valid() {
         $ebApi = new EasyBrokerApiService;
 
+        $response = $ebApi->getPublishedProperties(limit:1);
+        $somePropertyId = $response['body']['content'][0]['public_id'];
+
         $response = $ebApi->postContactRequest([
             'name' => 'Testing',
             'phone' => '4621234567',
             'email' => "test@eb.com",
-            "property_id" => "EB-B5372",
+            "property_id" => $somePropertyId,
             "message" => "Esto se puede borrar",
             "source" => "Intern",
         ]);

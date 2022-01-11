@@ -7,17 +7,26 @@ use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
 {
+    private const PROPERTIES_PER_PAGE = 15;
     private $ebApi;
 
     function __construct() {
         $this->ebApi = new EasyBrokerApiService;
     }
 
-    public function index() {
-        $response = $this->ebApi->getPublishedProperties(limit:15);
-        $properties = $response['body']['content'];
+    public function index(Request $request) {
+        $currentPage = $request->query('page', 1);
 
-        return view('properties.home', ['properties' => $properties]);
+        $response = $this->ebApi->getPublishedProperties(page:$currentPage, limit:self::PROPERTIES_PER_PAGE);
+        $properties = $response['body']['content'];
+        
+        $pages = intdiv($response['body']['pagination']['total'], self::PROPERTIES_PER_PAGE);
+        
+        return view('properties.home', [
+            'properties' => $properties,
+            'pages' => $pages,
+            'currentPage' => $currentPage
+        ]);
     }
 
     public function show($id) {

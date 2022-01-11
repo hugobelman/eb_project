@@ -20,7 +20,7 @@ Route::get('/', function () {
     return redirect('/properties');
 });
 
-Route::get('/properties', [PropertiesController::class, 'index']);
+Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
 
 Route::get('/properties/{id}', [PropertiesController::class, 'show'])->name('property');
 

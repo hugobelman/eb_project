@@ -13,11 +13,10 @@
         </div>
     </div>
 
-
     @endif
 
     <div class="row">
-        <div class="col">
+        <div class="col align-self-end">
             <h1>{{$property['title']}}</h1>
         </div>
     </div>
@@ -36,56 +35,35 @@
             <small><strong>ID:</strong> {{$property['public_id']}}</small>
         </div>
     </div>
-    <div class="row">
-        @isset($property['property_images'][0])
-        <div class="col">
-            <img src="{{$property['property_images'][0]['url']}}" class="img-fluid" alt="Estate image">
+
+    <div id="slideshow" class="carousel slide max-h" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach($property['property_images'] as $image)
+            <div @class(['carousel-item', 'active' => $loop->index==0]) >
+                <img src="{{$image['url']}}" class="d-block" alt="{{$image['title']}}">
+            </div>
+            @endforeach
         </div>
-        @endisset
+        <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+
 
     <hr>
 
     <div class="row">
         <div class="col">
-            <h2>¿Estas interesado?</h2>
+            <h3>Form de contacto</h3>
         </div>
     </div>
 
-    <form action="{{url('/properties')}}" method="POST">
-        @csrf
-        <input style="display:none" type="text" name="source" value="Intern">
-        <input style="display:none" type="text" name="property_id" value="{{$property['public_id']}}">
-        
-        <div class="row mb-3">
-            <div class="col">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name">
-            </div>
-            <div class="col">
-                <label for="phone" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="phone" name="phone">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="email" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="message" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-        </div>
-    </form>
+    @include('properties.elements.form')
 
 </div>
 
