@@ -36,7 +36,7 @@ docker run --rm \
 ./vendor/bin/sail up
 ```
 
-5. En otra terminal ejecutar lo siguiente
+5. En otra terminal dentro de la carpeta de nuestro repositorio ejecutar lo siguiente
 
 ```bash
 mv .env.example .env
