@@ -29,13 +29,13 @@ cd eb_project
 
 ## Screenshots
 
-[Alt text](/screenshots/4.jpg "Página principal: Page 1")
+![Alt text](/../main/screenshots/4.jpg?raw=true "Página principal: Page 1")
 
-[Alt text](/screenshots/4.jpg "Página principal: Page 5")
+![Alt text](/../main/screenshots/1.jpg?raw=true "Página principal: Page 5")
 
-[Alt text](/screenshots/2.jpg "Página de propiedad")
+![Alt text](/../main/screenshots/2.jpg?raw=true "Página de propiedad")
 
-[Alt text](/screenshots/3.jpg "Formulario enviado")
+![Alt text](/../main/screenshots/3.jpg?raw=true "Formulario enviado")
 
 ## Notas
 
