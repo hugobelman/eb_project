@@ -29,13 +29,13 @@ cd eb_project
 
 ## Screenshots
 
-![Alt text](/../main/screenshots/4.jpg?raw=true "Página principal: Page 1")
+![Alt text](https://raw.github.com/hugobelman/eb_project/main/screenshots/4.jpg "Página principal: Page 1")
 
-![Alt text](/../main/screenshots/1.jpg?raw=true "Página principal: Page 5")
+![Alt text](https://raw.github.com/hugobelman/eb_project/main/screenshots/1.jpg "Página principal: Page 5")
 
-![Alt text](/../main/screenshots/2.jpg?raw=true "Página de propiedad")
+![Alt text](https://raw.github.com/hugobelman/eb_project/main/screenshots/2.jpg "Página de propiedad")
 
-![Alt text](/../main/screenshots/3.jpg?raw=true "Formulario enviado")
+![Alt text](https://raw.github.com/hugobelman/eb_project/main/screenshots/3.jpg "Formulario enviado")
 
 ## Notas
 
