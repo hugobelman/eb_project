@@ -40,12 +40,22 @@ docker run --rm \
 
 ```bash
 mv .env.example .env
+mkdir tests/Feature
 ./vendor/bin/sail artisan cache:clear
 ./vendor/bin/sail composer dump-autoload
 ./vendor/bin/sail artisan key:generate
 ```
 
-6. Entrar a [localhost](http://localhost) y listo!
+6. Agregar el EB_API_KEY al .env
+
+7. Ejecutar tests
+```bash
+mv .env.example .env
+mkdir tests/Feature
+./vendor/bin/sail test
+```
+
+8. Entrar a [localhost](http://localhost) y listo!
 
 ## Screenshots
 

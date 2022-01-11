@@ -7,10 +7,16 @@ use Illuminate\Support\Facades\Http;
 
 class EasyBrokerApiService {
 
-    protected const URL = "https://api.stagingeb.com/v1";
-    protected const HEADERS = [
-        'X-Authorization' => 'l7u502p8v46ba3ppgvj5y2aad50lb9'
-    ];
+    protected $url;
+    protected $headers;
+
+    public function __construct() {
+        $this->headers = [
+            'X-Authorization' => $_ENV['EB_API_KEY']
+        ];
+
+        $this->url = $_ENV['EB_API_URL'];
+    }
 
     public function getPublishedProperties($page = 1, $limit = 20) {
         return $this->getResourceList('properties', [
@@ -31,20 +37,20 @@ class EasyBrokerApiService {
     // Private
 
     private function getResourceList($resource, $query) {
-        return $this->get(self::URL.'/'.$resource, $query);
+        return $this->get($this->url.'/'.$resource, $query);
     }
 
     private function getResource($resource, $id) {
-        return $this->get(self::URL.'/'.$resource.'/'.$id);
+        return $this->get($this->url.'/'.$resource.'/'.$id);
     }
 
     private function postResource($resource, $data) {
-        return $this->post(self::URL.'/'.$resource, $data); 
+        return $this->post($this->url.'/'.$resource, $data); 
     }
 
     private function post($url, $body) {
         try {
-            $response = Http::withHeaders(self::HEADERS)->post($url, $body);
+            $response = Http::withHeaders($this->headers)->post($url, $body);
 
             return $this->getFormatedResponse($response);
         } catch (Exception $e) {
@@ -54,7 +60,7 @@ class EasyBrokerApiService {
 
     private function get($url, $query = []) {
         try {
-            $response = Http::withHeaders(self::HEADERS)->get($url, $query);
+            $response = Http::withHeaders($this->headers)->get($url, $query);
 
             return $this->getFormatedResponse($response);
         } catch (Exception $e) {
