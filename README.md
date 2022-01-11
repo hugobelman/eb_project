@@ -4,7 +4,7 @@ Para la elaboración de este proyecto se uso LARAVEL, un framework para PHP.
 
 ## ¿Cómo ejecutar el proyecto?
 
-### Usando Docker Desktop (Mac/Windows)
+### Usando Docker Desktop (Mac/Windows WSL)
 <br>
 
 1. Clonar el repositorio
@@ -19,13 +19,33 @@ git clone https://github.com/hugobelman/eb_project
 cd eb_project
 ```
 
-3. Ejecutar el siguiente comando (Docker Desktop debe estar corriendo)
+3. Instalar dependencias de sail (Docker Desktop debe estar corriendo)
+
+```bash
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+4. Ejecutar el siguiente comando (Docker Desktop debe estar corriendo)
 
 ```bash
 ./vendor/bin/sail up
 ```
 
-4. Entrar a [localhost](http://localhost) y listo!
+5. En otra terminal ejecutar lo siguiente
+
+```bash
+mv .env.example .env
+./vendor/bin/sail artisan cache:clear
+./vendor/bin/sail composer dump-autoload
+./vendor/bin/sail artisan key:generate
+```
+
+6. Entrar a [localhost](http://localhost) y listo!
 
 ## Screenshots
 
